@@ -1,4 +1,6 @@
+#include <nlohmann/json.hpp>
 #include "ylang/vm.hpp"
+using json = nlohmann::json;
 #include <iostream>
 
 extern "C" void YlangLoadModule(std::shared_ptr<Env> env, const std::vector<std::string> &symbols) {
@@ -131,4 +133,3 @@ extern "C" void YlangLoadModule(std::shared_ptr<Env> env, const std::vector<std:
 		modVal.ref = moduleNamespace;
 		env->set("Json", modVal, false, false);
 	}
-}
